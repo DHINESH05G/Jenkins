@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Compile the Java project
+                bat 'hello-world' // List files to verify the path
                 bat 'javac -d target src\\main\\java\\com\\example\\App.java'
             }
         }
