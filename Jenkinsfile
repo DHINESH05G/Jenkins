@@ -2,24 +2,42 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Build') {
             steps {
-                // Compile the Java project
-                bat 'hello-world' // List files to verify the path
-                bat 'javac -d target src\\main\\java\\com\\example\\App.java'
+                dir('hello-world') {
+                    bat 'mvn clean install'
+                }
             }
         }
+
         stage('Test') {
             steps {
-                // Run unit tests (if any)
-                echo 'No tests to run.'
+                dir('hello-world') {
+                    bat 'mvn test'
+                }
             }
         }
+
         stage('Deploy') {
             steps {
-                // Deploy the application (this is just a placeholder)
-                echo 'Deploying the application...'
+                echo 'Deploying application...'
+                // Add deployment steps here
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build completed successfully!'
+        }
+        failure {
+            echo 'Build failed.'
         }
     }
 }
