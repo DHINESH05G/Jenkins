@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Compile the Java project
-                sh 'javac -d target src/main/java/com/example/App.java'
+                bat 'javac -d target src\\main\\java\\com\\example\\App.java'
             }
         }
         stage('Test') {
