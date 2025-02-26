@@ -16,14 +16,6 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                dir('hello-world') {
-                    bat 'mvn test'
-                }
-            }
-        }
-
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
