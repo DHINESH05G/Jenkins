@@ -4,18 +4,18 @@ pipeline {
         stage('Build') {
             steps {
                 checkout scm
-                sh 'make build' // Replace with your build command
+                bat 'make build' // Replace with your build command
             }
         }
         stage('Test') {
             steps {
-                sh 'make test' // Replace with your test command
+                bat 'make test' // Replace with your test command
                 junit '**/target/test-*.xml' // Adjust the path to your test results
             }
         }
         stage('Deploy') {
             steps {
-                sh 'make deploy' // Replace with your deploy command
+                bat 'make deploy' // Replace with your deploy command
             }
         }
     }
