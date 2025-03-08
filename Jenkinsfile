@@ -2,10 +2,10 @@ pipeline {
     agent any
      stage('clean the code ')
      {
-        steps{sh 'mvn clean'}
+        steps{bat 'mvn clean'}
      }
      stage('unit testing')
      {
-        steps{ sh 'mvn test'}
+        steps{ bat 'mvn test'}
      }
 }
