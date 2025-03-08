@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 checkout scm
-                bat 'make build' // Replace with your build command
+                sh 'make build' // Replace with your build command
             }
         }
         stage('Test') {
