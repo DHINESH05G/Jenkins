@@ -1,11 +1,11 @@
 pipeline {
     agent any
-    stages {
-        stage('Build') {
-            steps {
-                checkout scm
-                bat 'mvn clean' // Replace with your build command
-            }
-        }
-    }
+     stage('clean the code ')
+     {
+        steps{sh 'mvn clean'}
+     }
+     stage('unit testing')
+     {
+        steps{ sh 'mvn test'}
+     }
 }
