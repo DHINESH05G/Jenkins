@@ -1,11 +1,19 @@
 pipeline {
-    agent any
-     stage('clean the code ')
-     {
-        steps{bat 'mvn clean'}
-     }
-     stage('unit testing')
-     {
-        steps{ bat 'mvn test'}
-     }
+  agent any
+
+      stages{
+
+              stage('clean the code ')
+              {
+                  steps{
+                      sh 'mvn clean'
+                  }
+              }
+
+              stage('unit testing')
+              {
+                  steps{
+                      sh 'mvn test'
+                  }
+              }
 }
