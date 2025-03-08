@@ -6,14 +6,14 @@ pipeline {
               stage('clean the code ')
               {
                   steps{
-                      sh 'mvn clean'
+                      bat 'mvn clean'
                   }
               }
 
               stage('unit testing')
               {
                   steps{
-                      sh 'mvn test'
+                      bat 'mvn test'
                   }
               }
 }
